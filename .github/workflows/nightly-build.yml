@@ -2,7 +2,7 @@ name: Nightly Build
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 8 * * *'
+    - cron: '40 8 * * *'
 
 env:
   HELM_NAME: automq-for-rocketmq
