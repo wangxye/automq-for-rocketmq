@@ -155,12 +155,6 @@ jobs:
           annotate_only: true
           include_passed: true
           detailed_summary: true
-      - uses: actions/upload-artifact@v3
-        if: always()
-        name: Upload test log
-        with:
-          name: test-e2e-grpc-java-log.txt
-          path: testlog.txt
 
   test-e2e-remoting-java:
     if: ${{ success() }}
@@ -207,12 +201,6 @@ jobs:
           annotate_only: true
           include_passed: true
           detailed_summary: true
-      - uses: actions/upload-artifact@v3
-        if: always()
-        name: Upload test log
-        with:
-          name: test-e2e-remoting-java-log.txt
-          path: testlog.txt
 
   clean:
     if: always()
