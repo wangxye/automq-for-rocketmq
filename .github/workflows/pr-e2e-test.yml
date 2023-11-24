@@ -7,7 +7,6 @@ on:
     workflows: ["BUILD-CI"]
     types:
       - completed
-    branches: ['**']
 
 
 
