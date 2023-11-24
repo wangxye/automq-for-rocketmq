@@ -2,14 +2,13 @@ name: E2E test for pull request
 
 # read-write repo token
 # access to secrets
-#on:
-#  workflow_run:
-#    workflows: ["BUILD-CI"]
-#    types:
-#      - completed
-#    branches: ['**']
 on:
-  workflow_call:
+  workflow_run:
+    workflows: ["BUILD-CI"]
+    types:
+      - completed
+    branches: ['**']
+
 
 
 env:
@@ -19,10 +18,9 @@ env:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    if: always()
-#    if: >
-#      github.event.workflow_run.event == 'pull_request' &&
-#      github.event.workflow_run.conclusion == 'success'
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
     timeout-minutes: 30
     strategy:
       matrix:
